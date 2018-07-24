@@ -1,0 +1,39 @@
+<th:block th:fragment>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-color-dark">
+        <a class="navbar-brand h4" th:href="@{/}">MeTube™</a>
+        <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse d-flex justify-content-end row" id="navbarSupportedContent">
+            <ul class="navbar-nav ml-auto">
+                <th:block sec:authorize="isAnonymous()">
+                    <li class="nav-item active col-md-4">
+                        <a class="nav-link h5" th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item active col-md-4">
+                        <a class="nav-link h5" th:href="@{/login}">Login</a>
+                    </li>
+                    <li class="nav-item active col-md-4">
+                        <a class="nav-link h5" th:href="@{/register}">Register</a>
+                    </li>
+                </th:block>
+                <th:block sec:authorize="isAuthenticated()">
+                    <li class="nav-item active col-md-3">
+                        <a class="nav-link h5" th:href="@{/home}">Home</a>
+                    </li>
+                    <li class="nav-item active col-md-3">
+                        <a class="nav-link h5" th:href="@{/profile}">Profile</a>
+                    </li>
+                    <li class="nav-item active col-md-3">
+                        <a class="nav-link h5" th:href="@{/tube/upload}">Upload</a>
+                    </li>
+                    <li class="nav-item active col-md-3">
+                        <form th:action="@{/logout}" method="post">
+                            <button class="nav-link border-0 bg-transparent h5 text-white">Logout</button>
+                        </form>
+                    </li>
+                </th:block>
+            </ul>
+        </div>
+    </nav>
+</th:block>

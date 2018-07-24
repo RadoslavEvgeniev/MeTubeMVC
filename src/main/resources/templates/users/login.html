@@ -1,0 +1,36 @@
+<th:block th:fragment>
+    <div class="text-center mb-3">
+        <h1>Login</h1>
+    </div>
+    <hr class="my-2">
+    <div class="container-fluid">
+        <div class="row justify-content-center">
+            <div class="form-holder text-center">
+                <form class="form-inline" th:action="@{/login}" method="post" th:object="${userLoginBindingModel}">
+                    <fieldset>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="username">Username</label>
+                            <div class="controls">
+                                <input type="text" id="username" th:field="*{username}" placeholder="Username..." class="input-xlarge">
+                            </div>
+                        </div>
+                        <br>
+                        <div class="control-group">
+                            <label class="control-label h3 mb-2" for="password">Password</label>
+                            <div class="controls">
+                                <input type="password" id="password" th:field="*{password}" placeholder="Password..." class="input-xlarge">
+                            </div>
+                        </div>
+                        <div type="hidden" th:name="${_csrf.parameterName}" th:value="${_csrf.token}"></div>
+                        <br>
+                        <div class="control-group">
+                            <div class="controls">
+                                <button class="btn btn-info">Login</button>
+                            </div>
+                        </div>
+                    </fieldset>
+                </form>
+            </div>
+        </div>
+    </div>
+</th:block>

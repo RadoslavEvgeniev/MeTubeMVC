@@ -1,0 +1,6 @@
+<th:block th:fragment>
+    <h1 class="text text-center text-danger" th:text="${errorViewModel.message}"></h1>
+    <div class="text text-center">
+        <img th:src="'https://http.cat/' + ${errorViewModel.statusCode}" alt="">
+    </div>
+</th:block>
